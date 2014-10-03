@@ -1,0 +1,41 @@
+{
+		"manifest_version": 2,
+		
+		"name": "Sina Stupid Editor",
+		"version":"1.0",
+		"description": "Sina Stupid Editor(SSE) is a simple tool for Editors.",
+		
+		"icons":{
+				"128": "images/icon.png"
+		},
+		"background": {
+				"page": "container/background.html",
+				"persistent": true
+		},
+		"browser_action":{
+				"default_icon": "images/icon.png",
+				"default_popup": "core/popup.html"
+		},
+		"permissions":["tabs", "http://*.sina.com.cn/*"],
+		"content_scripts": [
+			{
+					"matches": ["http://*.sina.com.cn/*"],
+					"css":[
+								"core/lib/CodeMirror/lib/codemirror.css",
+								"core/lib/CodeMirror/addon/fold/foldgutter.css",
+								"js/content.css"
+						],
+					"js": [
+							"core/lib/jquery-1.11.1.js",
+							"core/lib/CodeMirror/lib/codemirror.js",
+							"core/lib/CodeMirror/mode/javascript/javascript.js",
+							"core/lib/CodeMirror/mode/xml/xml.js",
+							"core/lib/CodeMirror/mode/css/css.js",
+							"core/lib/CodeMirror/mode/htmlmixed/htmlmixed.js",
+							"js/content_script.js"
+							]
+			}
+		],
+		"author":"forevernull"
+		
+}
